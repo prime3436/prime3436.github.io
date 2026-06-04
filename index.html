@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Patibandla Mohan Sai — Java Developer & AI Engineer. Portfolio showcasing projects in Machine Learning, NLP, Computer Vision, GenAI, and Software Development.">
+    <meta name="keywords" content="Mohan Sai, Java Developer, AI Engineer, Data Science, Machine Learning, NLP, RAG, Portfolio, Python">
+    <meta name="author" content="Patibandla Mohan Sai">
+    <title>Mohan Sai | Java Developer & AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Scan Line Overlay -->
+    <div class="scanline-overlay"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-text">MS</span>
+            <span class="logo-bracket">/&gt;</span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="#certifications" class="nav-link" data-section="certifications">Certs</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-content">
+            <div class="hero-glitch-container">
+                <p class="hero-greeting typed-text" id="typedGreeting"></p>
+            </div>
+            <h1 class="hero-name">
+                <span class="name-line" data-text="MOHAN">MOHAN</span>
+                <span class="name-line accent" data-text="SAI">SAI</span>
+            </h1>
+            <div class="hero-title-wrapper">
+                <div class="hero-title-line"></div>
+                <p class="hero-title">JAVA DEVELOPER & AI ENGINEER</p>
+                <div class="hero-title-line"></div>
+            </div>
+            <p class="hero-tagline">Aspiring Java Developer building intelligent solutions with AI & Data Science</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <span class="btn-text">View Projects</span>
+                    <span class="btn-glow"></span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="btn-text">Get In Touch</span>
+                </a>
+            </div>
+            <div class="hero-scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>SCROLL</span>
+            </div>
+        </div>
+        <div class="hero-hud">
+            <div class="hud-corner hud-tl"></div>
+            <div class="hud-corner hud-tr"></div>
+            <div class="hud-corner hud-bl"></div>
+            <div class="hud-corner hud-br"></div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="section about-section">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">ABOUT <span class="accent">ME</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">mohan@portfolio:~</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="terminal-line"><span class="prompt">$</span> cat about.txt</p>
+                    <p class="terminal-output">An Aspiring Java Developer with a solid foundation in core Java concepts, complemented by knowledge of AI and data science for building intelligent solutions.</p>
+                    <p class="terminal-output">A quick learner with effective communication and a responsible approach to tasks, eager to apply Java knowledge in practical settings, grow into a versatile developer, and contribute meaningfully to impactful and innovative software solutions.</p>
+                    <p class="terminal-line"><span class="prompt">$</span> cat education.json</p>
+                    <div class="terminal-json">
+                        <p>{</p>
+                        <p>&nbsp;&nbsp;"degree": "<span class="json-val">B.Tech in AI & Data Science</span>",</p>
+                        <p>&nbsp;&nbsp;"institution": "<span class="json-val">Panimalar Engineering College, Chennai</span>",</p>
+                        <p>&nbsp;&nbsp;"cgpa": <span class="json-num">8.14</span>,</p>
+                        <p>&nbsp;&nbsp;"duration": "<span class="json-val">Oct 2022 – July 2025</span>"</p>
+                        <p>}</p>
+                    </div>
+                    <p class="terminal-line"><span class="prompt">$</span> <span class="cursor-blink">_</span></p>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card" data-tilt>
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-number" data-count="8.14">0</div>
+                    <div class="stat-label">CGPA</div>
+                </div>
+                <div class="stat-card" data-tilt>
+                    <div class="stat-icon">🧠</div>
+                    <div class="stat-number" data-count="2">0</div>
+                    <div class="stat-label">INTERNSHIPS</div>
+                </div>
+                <div class="stat-card" data-tilt>
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-number" data-count="4">0</div>
+                    <div class="stat-label">PROJECTS</div>
+                </div>
+                <div class="stat-card" data-tilt>
+                    <div class="stat-icon">📜</div>
+                    <div class="stat-number" data-count="4">0</div>
+                    <div class="stat-label">CERTIFICATIONS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCE SECTION ========== -->
+    <section id="experience" class="section experience-section">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">EXPER<span class="accent">IENCE</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-marker">
+                    <div class="marker-pulse"></div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-date">
+                        <span class="date-badge">AUG 2023 — SEP 2023</span>
+                    </div>
+                    <h3 class="timeline-role">AI Intern</h3>
+                    <h4 class="timeline-company">Externs Club</h4>
+                    <ul class="timeline-details">
+                        <li>Completed core AI modules in a collaborative team setup</li>
+                        <li>Demonstrated solutions to assigned real-world tasks</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">Artificial Intelligence</span>
+                        <span class="tag">Team Collaboration</span>
+                        <span class="tag">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-marker">
+                    <div class="marker-pulse"></div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-date">
+                        <span class="date-badge">MAR 2024 — JUN 2024</span>
+                    </div>
+                    <h3 class="timeline-role">ML Intern</h3>
+                    <h4 class="timeline-company">Slash Mark IT (AICTE)</h4>
+                    <ul class="timeline-details">
+                        <li>Worked on ML pipelines and model training under mentorship</li>
+                        <li>Focused on supervised learning and data preparation</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Data Pipelines</span>
+                        <span class="tag">Supervised Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section id="skills" class="section skills-section">
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">SK<span class="accent">ILLS</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3 class="category-title"><span class="accent">&lt;</span> Technical Skills <span class="accent">/&gt;</span></h3>
+                <div class="skills-hexgrid">
+                    <div class="skill-hex" data-skill="Java" data-level="90">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">Java</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-hex" data-skill="Python" data-level="85">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-hex" data-skill="TensorFlow" data-level="75">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">TensorFlow</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-hex" data-skill="PyTorch" data-level="70">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">PyTorch</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-hex" data-skill="OpenCV" data-level="72">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">OpenCV</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-hex" data-skill="SQL" data-level="80">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">SQL</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-hex" data-skill="HTML/CSS" data-level="82">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">HTML/CSS</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-hex" data-skill="Git" data-level="78">
+                        <div class="hex-inner">
+                            <div class="hex-content">
+                                <span class="skill-name">Git & GitHub</span>
+                                <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="category-title"><span class="accent">&lt;</span> Soft Skills <span class="accent">/&gt;</span></h3>
+                <div class="soft-skills-orbit">
+                    <div class="orbit-center">
+                        <span>CORE</span>
+                    </div>
+                    <div class="orbit-ring orbit-ring-1">
+                        <div class="orbit-item" style="--angle: 0deg">Communication</div>
+                        <div class="orbit-item" style="--angle: 72deg">Problem-Solving</div>
+                        <div class="orbit-item" style="--angle: 144deg">Adaptability</div>
+                        <div class="orbit-item" style="--angle: 216deg">Leadership</div>
+                        <div class="orbit-item" style="--angle: 288deg">Time Mgmt</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section id="projects" class="section projects-section">
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 class="section-title">PRO<span class="accent">JECTS</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-tilt>
+                <div class="project-glow"></div>
+                <div class="project-header">
+                    <div class="project-icon">🧠</div>
+                    <div class="project-links">
+                        <span class="project-badge">NLP + Sentiment</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Mental Health Analysis</h3>
+                <p class="project-desc">Built an NLP model for mental health trend analysis using sentiment analysis & text classification on social media data. Achieved >80% validation accuracy with >90% precision & recall for critical categories.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>Sentiment Analysis</span>
+                    <span>Text Classification</span>
+                </div>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span class="stat-val">>80%</span>
+                        <span class="stat-lbl">Accuracy</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="stat-val">>90%</span>
+                        <span class="stat-lbl">Precision</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-tilt>
+                <div class="project-glow"></div>
+                <div class="project-header">
+                    <div class="project-icon">🔍</div>
+                    <div class="project-links">
+                        <span class="project-badge">Computer Vision</span>
+                    </div>
+                </div>
+                <h3 class="project-title">FindX — Scene Understanding</h3>
+                <p class="project-desc">Built an AI system that maps natural language queries to persons and scenes in images and video frames. Improved recall by 40%+ over baseline methods and reduced manual frame inspection time by 70%.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>Computer Vision</span>
+                    <span>Deep Learning</span>
+                </div>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span class="stat-val">+40%</span>
+                        <span class="stat-lbl">Recall Boost</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="stat-val">-70%</span>
+                        <span class="stat-lbl">Inspection Time</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-tilt>
+                <div class="project-glow"></div>
+                <div class="project-header">
+                    <div class="project-icon">🤟</div>
+                    <div class="project-links">
+                        <span class="project-badge">AI Assistive Tool</span>
+                    </div>
+                </div>
+                <h3 class="project-title">SIGN-LESS — Assistive Communication</h3>
+                <p class="project-desc">Designed an AI-based communication tool for non-verbal individuals using speech recognition, sentiment analysis, and TTS for real-time interaction — promoting accessibility and inclusion without sign language.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Speech Recognition</span>
+                    <span>Sentiment Analysis</span>
+                    <span>TTS</span>
+                </div>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span class="stat-val">AI</span>
+                        <span class="stat-lbl">Assistive</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="stat-val">TTS</span>
+                        <span class="stat-lbl">Real-Time</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-tilt>
+                <div class="project-glow"></div>
+                <div class="project-header">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-links">
+                        <span class="project-badge">GenAI + RAG</span>
+                    </div>
+                </div>
+                <h3 class="project-title">Keyframe Lecture Summarizer</h3>
+                <p class="project-desc">Developed an AI-powered system to extract keyframes from video lectures using clustering. Utilized Generative AI, LLMs, and Retrieval-Augmented Generation (RAG) to transform transcripts into concise summaries.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>GenAI</span>
+                    <span>LLMs</span>
+                    <span>RAG</span>
+                    <span>Clustering</span>
+                </div>
+                <div class="project-stats">
+                    <div class="project-stat">
+                        <span class="stat-val">RAG</span>
+                        <span class="stat-lbl">Retrieval</span>
+                    </div>
+                    <div class="project-stat">
+                        <span class="stat-val">LLM</span>
+                        <span class="stat-lbl">Summarization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CERTIFICATIONS SECTION ========== -->
+    <section id="certifications" class="section certifications-section">
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2 class="section-title">CERTIFI<span class="accent">CATIONS</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="certs-grid">
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l2-1l2 1l-2-5z"/><circle cx="12" cy="9" r="6"/><path d="M12 6v6l3-3"/></svg>
+                </div>
+                <h4 class="cert-name">Generative AI</h4>
+                <p class="cert-issuer">Oracle — OCI 2024</p>
+                <div class="cert-shine"></div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l2-1l2 1l-2-5z"/><circle cx="12" cy="9" r="6"/><path d="M12 6v6l3-3"/></svg>
+                </div>
+                <h4 class="cert-name">AI for Real-World Apps</h4>
+                <p class="cert-issuer">TCS ION</p>
+                <div class="cert-shine"></div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l2-1l2 1l-2-5z"/><circle cx="12" cy="9" r="6"/><path d="M12 6v6l3-3"/></svg>
+                </div>
+                <h4 class="cert-name">Data Science</h4>
+                <p class="cert-issuer">NASSCOM</p>
+                <div class="cert-shine"></div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-2 5l2-1l2 1l-2-5z"/><circle cx="12" cy="9" r="6"/><path d="M12 6v6l3-3"/></svg>
+                </div>
+                <h4 class="cert-name">Google AI</h4>
+                <p class="cert-issuer">Coursera</p>
+                <div class="cert-shine"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ACHIEVEMENTS SECTION ========== -->
+    <section id="achievements" class="section achievements-section">
+        <div class="section-header">
+            <span class="section-number">06</span>
+            <h2 class="section-title">ACHIEV<span class="accent">EMENTS</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">📄</div>
+                <div class="achievement-content">
+                    <h4>Research Publication</h4>
+                    <p>Published in <strong>TIJER</strong> — The International Journal of Engineering Research</p>
+                </div>
+                <div class="achievement-glow"></div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🎤</div>
+                <div class="achievement-content">
+                    <h4>Conference Presentation</h4>
+                    <p>Presented at the <strong>8th International Conference</strong> on Intelligent Computing</p>
+                </div>
+                <div class="achievement-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="section contact-section">
+        <div class="section-header">
+            <span class="section-number">07</span>
+            <h2 class="section-title">CON<span class="accent">TACT</span></h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p class="contact-tagline">Let's build something amazing together.</p>
+                <div class="contact-links">
+                    <a href="mailto:mohansai3437@gmail.com" class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">mohansai3437@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="tel:+919642687788" class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <span class="contact-label">Phone</span>
+                            <span class="contact-value">+91 96426 87788</span>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/patibandla-mohan-sai-2ab988245/" target="_blank" class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">Patibandla Mohan Sai</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="formName" placeholder=" " required>
+                    <label for="formName">Your Name</label>
+                    <div class="form-line"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="formEmail" placeholder=" " required>
+                    <label for="formEmail">Your Email</label>
+                    <div class="form-line"></div>
+                </div>
+                <div class="form-group">
+                    <textarea id="formMessage" rows="4" placeholder=" " required></textarea>
+                    <label for="formMessage">Your Message</label>
+                    <div class="form-line"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-grid-bg"></div>
+        <p class="footer-text">
+            <span class="accent">&lt;</span> Designed & Built by <strong>Mohan Sai</strong> <span class="accent">/&gt;</span>
+        </p>
+        <p class="footer-copy">&copy; 2025 All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
