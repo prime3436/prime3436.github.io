@@ -418,9 +418,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (greetingEl) {
         new TypeWriter(greetingEl, [
             '> Hello, World! I\'m',
-            '> Welcome to my portfolio.',
-            '> Let\'s build the future.',
-            '> AI enthusiast & developer.'
+            '> AI Engineer & Builder.',
+            '> Specializing in GenAI, NLP & Vision.',
+            '> Agentic Workflows & RAG Architect.'
         ], 70, 2200);
     }
 

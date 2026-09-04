@@ -906,10 +906,10 @@ ul { list-style: none; }
 
 /* === PROJECTS === */
 .projects-grid {
-    max-width: 1000px;
+    max-width: 1150px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 30px;
 }
 
@@ -958,6 +958,31 @@ ul { list-style: none; }
     border-radius: 20px;
     color: var(--neon-magenta);
     background: rgba(255, 0, 255, 0.06);
+}
+
+.project-badge.live-badge {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    background: rgba(0, 255, 136, 0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.project-badge.live-badge::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    box-shadow: 0 0 8px var(--neon-green);
+    animation: livePulse 1.5s infinite ease-in-out;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.75); }
 }
 
 .project-title {
