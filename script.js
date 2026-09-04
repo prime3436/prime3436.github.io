@@ -335,31 +335,93 @@ function initTilt() {
 // ===== CONTACT FORM =====
 function initContactForm() {
     const form = document.getElementById('contactForm');
+    const statusDiv = document.getElementById('formStatus');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const btn = form.querySelector('.btn-submit');
-        const originalText = btn.querySelector('.btn-text').textContent;
+        const btnText = btn.querySelector('.btn-text');
+        const originalText = btnText.textContent;
         
-        // Animate
-        btn.querySelector('.btn-text').textContent = 'SENDING...';
+        const nameInput = document.getElementById('formName');
+        const emailInput = document.getElementById('formEmail');
+        const messageInput = document.getElementById('formMessage');
+
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
+
+        if (!name || !email || !message) {
+            if (statusDiv) {
+                statusDiv.className = 'form-status error';
+                statusDiv.textContent = 'Please fill out all fields.';
+            }
+            return;
+        }
+
+        // Animate button
+        btnText.textContent = 'SENDING...';
         btn.style.pointerEvents = 'none';
-        
-        setTimeout(() => {
-            btn.querySelector('.btn-text').textContent = '✓ MESSAGE SENT';
-            btn.style.borderColor = '#00ff88';
-            btn.style.color = '#00ff88';
-            
-            setTimeout(() => {
-                btn.querySelector('.btn-text').textContent = originalText;
-                btn.style.pointerEvents = '';
-                btn.style.borderColor = '';
-                btn.style.color = '';
+        if (statusDiv) {
+            statusDiv.className = 'form-status';
+            statusDiv.style.display = 'none';
+        }
+
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/mohansai3437@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    _subject: `New Portfolio Message from ${name}`
+                })
+            });
+
+            if (response.ok) {
+                btnText.textContent = '✓ MESSAGE SENT';
+                btn.style.borderColor = '#00ff88';
+                btn.style.color = '#00ff88';
+
+                if (statusDiv) {
+                    statusDiv.className = 'form-status success';
+                    statusDiv.textContent = '✓ Thank you! Your message has been sent to mohansai3437@gmail.com.';
+                }
                 form.reset();
-            }, 2500);
-        }, 1500);
+
+                setTimeout(() => {
+                    btnText.textContent = originalText;
+                    btn.style.pointerEvents = '';
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                }, 4000);
+            } else {
+                throw new Error('Form service error');
+            }
+        } catch (error) {
+            console.warn('FormSubmit AJAX fallback:', error);
+            btnText.textContent = 'REDIRECTING TO EMAIL...';
+            
+            if (statusDiv) {
+                statusDiv.className = 'form-status success';
+                statusDiv.textContent = 'Opening your email client to send your message directly...';
+            }
+
+            const mailtoUrl = `mailto:mohansai3437@gmail.com?subject=${encodeURIComponent('Portfolio Contact from ' + name)}&body=${encodeURIComponent(message + '\n\n---\nFrom: ' + name + '\nEmail: ' + email)}`;
+            window.location.href = mailtoUrl;
+
+            setTimeout(() => {
+                btnText.textContent = originalText;
+                btn.style.pointerEvents = '';
+                if (statusDiv) statusDiv.style.display = 'none';
+            }, 4000);
+        }
     });
 }
 
