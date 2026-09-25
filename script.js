@@ -1,8 +1,4 @@
-/* ============================================================
-   CYBERPUNK PORTFOLIO — INTERACTIVE ENGINE
-   ============================================================ */
 
-// ===== PARTICLE SYSTEM =====
 class ParticleSystem {
     constructor(canvas) {
         this.canvas = canvas;
@@ -34,7 +30,7 @@ class ParticleSystem {
                 vy: (Math.random() - 0.5) * 0.6,
                 radius: Math.random() * 2 + 0.5,
                 opacity: Math.random() * 0.5 + 0.2,
-                hue: Math.random() > 0.5 ? 185 : 295, // cyan or magenta
+                hue: Math.random() > 0.5 ? 185 : 295,
             });
         }
     }
@@ -55,17 +51,15 @@ class ParticleSystem {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.particles.forEach((p, i) => {
-            // Move
+
             p.x += p.vx;
             p.y += p.vy;
 
-            // Wrap around
             if (p.x < 0) p.x = this.canvas.width;
             if (p.x > this.canvas.width) p.x = 0;
             if (p.y < 0) p.y = this.canvas.height;
             if (p.y > this.canvas.height) p.y = 0;
 
-            // Mouse interaction — attract gently
             const dx = this.mouse.x - p.x;
             const dy = this.mouse.y - p.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
@@ -76,17 +70,14 @@ class ParticleSystem {
                 p.vy += dy * force;
             }
 
-            // Damping
             p.vx *= 0.99;
             p.vy *= 0.99;
 
-            // Draw particle
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
             this.ctx.fillStyle = `hsla(${p.hue}, 100%, 70%, ${p.opacity})`;
             this.ctx.fill();
 
-            // Draw connections
             for (let j = i + 1; j < this.particles.length; j++) {
                 const p2 = this.particles[j];
                 const cdx = p.x - p2.x;
@@ -109,7 +100,6 @@ class ParticleSystem {
     }
 }
 
-// ===== TYPED TEXT EFFECT =====
 class TypeWriter {
     constructor(element, texts, speed = 80, pause = 2000) {
         this.element = element;
@@ -124,7 +114,7 @@ class TypeWriter {
 
     type() {
         const currentText = this.texts[this.textIndex];
-        
+
         if (this.isDeleting) {
             this.element.textContent = currentText.substring(0, this.charIndex - 1);
             this.charIndex--;
@@ -152,7 +142,6 @@ class TypeWriter {
     }
 }
 
-// ===== CUSTOM CURSOR =====
 function initCursor() {
     const cursor = document.getElementById('cursorGlow');
     if (!cursor || window.innerWidth < 768) return;
@@ -174,7 +163,6 @@ function initCursor() {
     }
     updateCursor();
 
-    // Hover effect on interactive elements
     const hoverTargets = document.querySelectorAll('a, button, .btn, .project-card, .stat-card, .cert-card, .skill-hex, .contact-item, .achievement-card, input, textarea');
     hoverTargets.forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
@@ -182,25 +170,21 @@ function initCursor() {
     });
 }
 
-// ===== NAVBAR =====
 function initNavbar() {
     const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const links = document.querySelectorAll('.nav-link');
 
-    // Scroll effect
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Hamburger toggle
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
     });
 
-    // Close menu on link click
     links.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -208,7 +192,6 @@ function initNavbar() {
         });
     });
 
-    // Active link on scroll
     const sections = document.querySelectorAll('.section');
     window.addEventListener('scroll', () => {
         let current = '';
@@ -227,7 +210,6 @@ function initNavbar() {
     });
 }
 
-// ===== SCROLL REVEAL =====
 function initScrollReveal() {
     const revealElements = document.querySelectorAll(
         '.section-header, .about-terminal, .about-stats, .project-card, .cert-card, .achievement-card, .contact-info, .contact-form, .timeline-item'
@@ -247,7 +229,6 @@ function initScrollReveal() {
     revealElements.forEach(el => observer.observe(el));
 }
 
-// ===== COUNTER ANIMATION =====
 function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
 
@@ -273,8 +254,7 @@ function animateCounter(element, target) {
     function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
-        // Ease out cubic
+
         const eased = 1 - Math.pow(1 - progress, 3);
         const current = start + (target - start) * eased;
 
@@ -290,7 +270,6 @@ function animateCounter(element, target) {
     requestAnimationFrame(update);
 }
 
-// ===== SKILL BAR ANIMATION =====
 function initSkillBars() {
     const fills = document.querySelectorAll('.skill-fill');
 
@@ -307,7 +286,6 @@ function initSkillBars() {
     fills.forEach(fill => observer.observe(fill));
 }
 
-// ===== TILT EFFECT =====
 function initTilt() {
     if (window.innerWidth < 768) return;
 
@@ -332,7 +310,6 @@ function initTilt() {
     });
 }
 
-// ===== CONTACT FORM =====
 function initContactForm() {
     const form = document.getElementById('contactForm');
     const statusDiv = document.getElementById('formStatus');
@@ -340,11 +317,11 @@ function initContactForm() {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const btn = form.querySelector('.btn-submit');
         const btnText = btn.querySelector('.btn-text');
         const originalText = btnText.textContent;
-        
+
         const nameInput = document.getElementById('formName');
         const emailInput = document.getElementById('formEmail');
         const messageInput = document.getElementById('formMessage');
@@ -361,7 +338,6 @@ function initContactForm() {
             return;
         }
 
-        // Animate button
         btnText.textContent = 'SENDING...';
         btn.style.pointerEvents = 'none';
         if (statusDiv) {
@@ -407,7 +383,7 @@ function initContactForm() {
         } catch (error) {
             console.warn('FormSubmit AJAX fallback:', error);
             btnText.textContent = 'REDIRECTING TO EMAIL...';
-            
+
             if (statusDiv) {
                 statusDiv.className = 'form-status success';
                 statusDiv.textContent = 'Opening your email client to send your message directly...';
@@ -425,7 +401,6 @@ function initContactForm() {
     });
 }
 
-// ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -441,13 +416,12 @@ function initSmoothScroll() {
     });
 }
 
-// ===== GLITCH TEXT ON HOVER (hero name) =====
 function initGlitchHover() {
     const nameLines = document.querySelectorAll('.name-line');
     nameLines.forEach(line => {
         line.addEventListener('mouseenter', () => {
             line.style.animation = 'none';
-            // Force rapid glitch
+
             let count = 0;
             const glitch = setInterval(() => {
                 const x = (Math.random() - 0.5) * 6;
@@ -469,13 +443,11 @@ function initGlitchHover() {
     });
 }
 
-// ===== INITIALIZE EVERYTHING =====
 document.addEventListener('DOMContentLoaded', () => {
-    // Particle System
+
     const canvas = document.getElementById('particle-canvas');
     if (canvas) new ParticleSystem(canvas);
 
-    // Typed greeting
     const greetingEl = document.getElementById('typedGreeting');
     if (greetingEl) {
         new TypeWriter(greetingEl, [
@@ -486,7 +458,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ], 70, 2200);
     }
 
-    // All initializations
     initCursor();
     initNavbar();
     initScrollReveal();
@@ -497,10 +468,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initGlitchHover();
 
-    // Page load animation
     document.body.style.opacity = '0';
     requestAnimationFrame(() => {
         document.body.style.transition = 'opacity 1s ease';
         document.body.style.opacity = '1';
     });
 });
+
